@@ -2,88 +2,138 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>My Skills Portfolio</title>
+  <title>Da-coders-135 | Developer Portfolio</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
-    body { font-family: Arial, sans-serif; margin: 0; background: #f5f5f5; }
-    header { background: #3f51b5; color: #fff; padding: 2em 1em; text-align: center; }
-    section { margin: 2em auto; max-width: 900px; background: #fff; padding: 2em; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.07); }
-    h2 { color: #3f51b5; }
-    ul { list-style-type: disc; margin-left: 2em; }
-    .skills-list { display: flex; flex-wrap: wrap; gap: 2em; }
-    .skill-card { background: #e3e3fc; padding: 1em; border-radius: 6px; flex: 1 1 200px; min-width: 200px; }
-    .projects { display: flex; flex-wrap: wrap; gap: 2em; }
-    .project-card { background: #f0f0f0; padding: 1em; border-radius: 6px; flex: 1 1 250px; min-width: 250px; }
-    footer { text-align: center; color: #888; margin: 2em 0; }
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background: #f5f5f5;
+      color: #333;
+    }
+    header {
+      background: #3f51b5;
+      color: #fff;
+      padding: 2em 1em;
+      text-align: center;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2.5em;
+    }
+    header p {
+      margin: 0.5em 0 0;
+      font-size: 1.2em;
+    }
+    section {
+      margin: 2em auto;
+      max-width: 960px;
+      background: #fff;
+      padding: 2em;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
+    }
+    h2 {
+      color: #3f51b5;
+      margin-top: 0;
+    }
+    ul {
+      list-style-type: disc;
+      margin-left: 1.5em;
+    }
+    .skills-list, .projects {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5em;
+    }
+    .skill-card, .project-card {
+      background: #e8eaf6;
+      padding: 1em;
+      border-radius: 6px;
+      flex: 1 1 250px;
+      transition: transform 0.3s ease;
+    }
+    .skill-card:hover, .project-card:hover {
+      transform: scale(1.02);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+    .project-card a {
+      color: #3f51b5;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .project-card a:hover {
+      text-decoration: underline;
+    }
+    footer {
+      text-align: center;
+      color: #888;
+      margin: 2em 0;
+      font-size: 0.9em;
+    }
     @media (max-width: 600px) {
-      .skills-list, .projects { flex-direction: column; }
+      .skills-list, .projects {
+        flex-direction: column;
+      }
     }
   </style>
 </head>
 <body>
   <header>
-    <h1>Welcome to My Portfolio</h1>
-    <p>Showcasing My Skills and Projects</p>
+    <h1>Kevin Lule</h1>
+    <p>Software Developer | Django • MQL5 • IoT</p>
   </header>
+
   <section>
     <h2>About Me</h2>
     <p>
-      Hello! I'm [Your Name], a passionate developer with experience in web development, programming, and problem-solving. I love creating impactful solutions and learning new technologies.
+      Hello! I'm Kevin, a developer passionate about building backend systems, automation bots, and IoT integrations. I specialize in Django (Python), MQL5 for trading bots, and real-world solutions involving software, data, and robotics. Whether it's creating a web API or automating a trading strategy, I love solving problems with code.
     </p>
   </section>
+
   <section>
     <h2>Skills</h2>
     <div class="skills-list">
       <div class="skill-card">
-        <h3>Frontend Development</h3>
-        <ul>
-          <li>HTML5, CSS3, JavaScript</li>
-          <li>React.js, Vue.js</li>
-          <li>Responsive Design</li>
-        </ul>
-      </div>
-      <div class="skill-card">
         <h3>Backend Development</h3>
         <ul>
-          <li>Node.js, Express</li>
-          <li>Python, Django, Flask</li>
-          <li>RESTful APIs</li>
+          <li>Python, Django</li>
+          <li>Django REST Framework (DRF)</li>
+          <li>RESTful APIs, WebSockets</li>
         </ul>
-      </div>
       <div class="skill-card">
-        <h3>Other Skills</h3>
+        <h3>Tools & Databases</h3>
         <ul>
-          <li>Git & GitHub</li>
-          <li>SQL & NoSQL Databases</li>
-          <li>Problem Solving</li>
+          <li>Git, GitHub, Docker</li>
+          <li>PostgreSQL</li>
+          <li>Celery, Redis</li>
         </ul>
       </div>
     </div>
   </section>
+
   <section>
     <h2>Projects</h2>
     <div class="projects">
       <div class="project-card">
-        <h4>Project Title 1</h4>
-        <p>Brief description of your project, technologies used, and outcome.</p>
+        <h4>Myndspace – Mental Health Platform</h4>
+        <p>
+          A Django-based platform connecting therapists and clients, with appointment booking, real-time chat, and Zoom integration.
+        </p>
         <a href="https://github.com/Da-code135" target="_blank">View on GitHub</a>
       </div>
-      <div class="project-card">
-        <h4>Project Title 2</h4>
-        <p>Brief description of your project, technologies used, and outcome.</p>
-        <a href="https://github.com/Da-code135" target="_blank">View on GitHub</a>
-      </div>
-      <!-- Add more project cards as needed -->
     </div>
   </section>
+
   <section>
     <h2>Contact</h2>
     <p>
-      Feel free to reach out to me via <a href="mailto:your.email@example.com">email</a> or connect with me on <a href="https://github.com/Da-code135" target="_blank">GitHub</a>.
+      Feel free to reach out via <a href="mailto:darren77theone@gmail.com">email</a> or connect with me on <a href="https://github.com/Da-code135" target="_blank">GitHub</a>.
     </p>
   </section>
+
   <footer>
-    &copy; 2025 [Your Name]. All Rights Reserved.
+    &copy; 2025 Da-coders-135. All Rights Reserved.
   </footer>
 </body>
 </html>
