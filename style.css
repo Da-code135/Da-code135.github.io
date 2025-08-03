@@ -1,19 +1,38 @@
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   margin: 0;
-  background: linear-gradient(to right, #f5f7fa, #e0eafc);
-  color: #333;
+  background: linear-gradient(to right, #f8fafc, #e2e8f0);
+  color: #1e293b;
   scroll-behavior: smooth;
   line-height: 1.6;
 }
 
 header {
-  background: linear-gradient(135deg, #3f51b5, #5c6bc0);
+  background: linear-gradient(135deg, #1e3a8a, #3b82f6);
   color: #fff;
   padding: 3em 1em;
   text-align: center;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 20px rgba(30, 58, 138, 0.3);
   animation: fadeDown 1s ease;
+}
+
+.header-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1em;
+}
+
+.logo {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  transition: transform 0.3s ease;
+}
+
+.logo:hover {
+  transform: scale(1.1);
 }
 
 @keyframes fadeDown {
@@ -49,7 +68,7 @@ section {
 }
 
 h2 {
-  color: #3f51b5;
+  color: #1e3a8a;
   font-size: 1.8rem;
   margin-bottom: 1em;
 }
@@ -72,40 +91,40 @@ ul {
   border-radius: 10px;
   flex: 1 1 280px;
   min-width: 260px;
-  box-shadow: 0 2px 12px rgba(63, 81, 181, 0.1);
+  box-shadow: 0 2px 12px rgba(30, 58, 138, 0.1);
   transition: all 0.3s ease;
-  border-left: 6px solid #3f51b5;
+  border-left: 6px solid #1e3a8a;
   cursor: default;
 }
 
 .skill-card:hover, .project-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 8px 20px rgba(63, 81, 181, 0.2);
+  box-shadow: 0 8px 25px rgba(30, 58, 138, 0.25);
 }
 
 .project-card a {
   display: inline-block;
   margin-top: 0.8em;
-  color: #3f51b5;
+  color: #1e3a8a;
   font-weight: 600;
   text-decoration: none;
   transition: color 0.2s ease;
 }
 
 .project-card a:hover {
-  color: #1a237e;
+  color: #1e40af;
   text-decoration: underline;
 }
 
 footer {
   text-align: center;
-  color: #888;
+  color: #64748b;
   margin: 3em 0 2em;
   font-size: 0.95em;
 }
 
 a {
-  color: #3f51b5;
+  color: #1e3a8a;
   text-decoration: none;
 }
 
@@ -115,6 +134,11 @@ a:hover {
 
 /* ✅ Responsive adjustments for tablets and below */
 @media (max-width: 768px) {
+  .logo {
+    width: 60px;
+    height: 60px;
+  }
+
   header h1 {
     font-size: 2rem;
   }
@@ -148,6 +172,11 @@ a:hover {
 @media (max-width: 480px) {
   body {
     font-size: 15px;
+  }
+
+  .logo {
+    width: 50px;
+    height: 50px;
   }
 
   header h1 {
