@@ -14,6 +14,53 @@
           const width = bar.getAttribute('data-width');
           bar.style.setProperty('--progress-width', width);
         });
+
+        // Tab functionality
+        const tabBtns = document.querySelectorAll('.tab-btn');
+        const tabContents = document.querySelectorAll('.tab-content');
+        const tabIndicator = document.querySelector('.tab-indicator');
+
+        function switchTab(targetTab) {
+          // Remove active class from all tabs and contents
+          tabBtns.forEach(btn => btn.classList.remove('active'));
+          tabContents.forEach(content => content.classList.remove('active'));
+
+          // Add active class to clicked tab and corresponding content
+          const activeBtn = document.querySelector(`[data-tab="${targetTab}"]`);
+          const activeContent = document.getElementById(targetTab);
+          
+          activeBtn.classList.add('active');
+          activeContent.classList.add('active');
+
+          // Move indicator
+          const btnRect = activeBtn.getBoundingClientRect();
+          const containerRect = activeBtn.parentElement.getBoundingClientRect();
+          const indicatorPosition = btnRect.left - containerRect.left;
+          
+          tabIndicator.style.transform = `translateX(${indicatorPosition}px)`;
+          tabIndicator.style.width = `${btnRect.width}px`;
+        }
+
+        // Add click event listeners to tab buttons
+        tabBtns.forEach(btn => {
+          btn.addEventListener('click', () => {
+            const targetTab = btn.getAttribute('data-tab');
+            switchTab(targetTab);
+          });
+        });
+
+        // Initialize indicator position
+        setTimeout(() => {
+          const activeBtn = document.querySelector('.tab-btn.active');
+          if (activeBtn) {
+            const btnRect = activeBtn.getBoundingClientRect();
+            const containerRect = activeBtn.parentElement.getBoundingClientRect();
+            const indicatorPosition = btnRect.left - containerRect.left;
+            
+            tabIndicator.style.transform = `translateX(${indicatorPosition}px)`;
+            tabIndicator.style.width = `${btnRect.width}px`;
+          }
+        }, 100);
       });
     </script>
 </head>
@@ -28,102 +75,137 @@
     </div>
   </header>
 
-  <section>
-    <h2>About Us</h2>
-    <p>
-       We specialize in building powerful APIs using Python, Django, and Django REST Framework, and we also develop games using Unity and C#. We enjoy turning ideas into scalable services and engaging interactive experiences. Whether it's a clean API for a web app or a polished gameplay mechanic, we focus on high-quality code and purposeful design.
-    </p>
-  </section>
+  <div class="tab-container">
+    <div class="tab-navigation">
+      <button class="tab-btn active" data-tab="about">
+        <span class="tab-icon">👋</span>
+        <span class="tab-text">About</span>
+      </button>
+      <button class="tab-btn" data-tab="services">
+        <span class="tab-icon">⚡</span>
+        <span class="tab-text">Services</span>
+      </button>
+      <button class="tab-btn" data-tab="projects">
+        <span class="tab-icon">🚀</span>
+        <span class="tab-text">Projects</span>
+      </button>
+      <button class="tab-btn" data-tab="contact">
+        <span class="tab-icon">📧</span>
+        <span class="tab-text">Contact</span>
+      </button>
+      <div class="tab-indicator"></div>
+    </div>
 
-  <section>
-    <h2>Services</h2>
-    <div class="skills-list">
-      <div class="skill-card floating-card" data-delay="0">
-        <div class="skill-icon">🚀</div>
-        <h3>API Development</h3>
-        <div class="skill-progress">
-          <div class="progress-bar" data-width="95%"></div>
-        </div>
-        <ul>
-          <li>Python, Django, Django REST Framework</li>
-          <li>RESTful API Design</li>
-          <li>Authentication & Permissions</li>
-          <li>PostgreSQL, SQLite</li>
-        </ul>
+    <div class="tab-content-wrapper">
+      <div class="tab-content active" id="about">
+        <h2>About Us</h2>
+        <p>
+           We specialize in building powerful APIs using Python, Django, and Django REST Framework, and we also develop games using Unity and C#. We enjoy turning ideas into scalable services and engaging interactive experiences. Whether it's a clean API for a web app or a polished gameplay mechanic, we focus on high-quality code and purposeful design.
+        </p>
       </div>
-      <div class="skill-card floating-card" data-delay="200">
-        <div class="skill-icon">🎮</div>
-        <h3>Game Development</h3>
-        <div class="skill-progress">
-          <div class="progress-bar" data-width="90%"></div>
+
+      <div class="tab-content" id="services">
+        <h2>Services</h2>
+        <div class="skills-list">
+          <div class="skill-card floating-card" data-delay="0">
+            <div class="skill-icon">🚀</div>
+            <h3>API Development</h3>
+            <div class="skill-progress">
+              <div class="progress-bar" data-width="95%"></div>
+            </div>
+            <ul>
+              <li>Python, Django, Django REST Framework</li>
+              <li>RESTful API Design</li>
+              <li>Authentication & Permissions</li>
+              <li>PostgreSQL, SQLite</li>
+            </ul>
+          </div>
+          <div class="skill-card floating-card" data-delay="200">
+            <div class="skill-icon">🎮</div>
+            <h3>Game Development</h3>
+            <div class="skill-progress">
+              <div class="progress-bar" data-width="90%"></div>
+            </div>
+            <ul>
+              <li>Unity (2D & 3D)</li>
+              <li>C# Programming</li>
+              <li>Game Mechanics</li>
+              <li>Physics, Input</li>
+            </ul>
+          </div>
+          <div class="skill-card floating-card" data-delay="400">
+            <div class="skill-icon">⚡</div>
+            <h3>Tools & Practices</h3>
+            <div class="skill-progress">
+              <div class="progress-bar" data-width="88%"></div>
+            </div>
+            <ul>
+              <li>Git & GitHub</li>
+              <li>Version Control & CI/CD</li>
+              <li>Postman, Swagger</li>
+              <li>Debugging & Optimization</li>
+            </ul>
+          </div>
         </div>
-        <ul>
-          <li>Unity (2D & 3D)</li>
-          <li>C# Programming</li>
-          <li>Game Mechanics</li>
-          <li>Physics, Input</li>
-        </ul>
       </div>
-      <div class="skill-card floating-card" data-delay="400">
-        <div class="skill-icon">⚡</div>
-        <h3>Tools & Practices</h3>
-        <div class="skill-progress">
-          <div class="progress-bar" data-width="88%"></div>
+
+      <div class="tab-content" id="projects">
+        <h2>Projects</h2>
+        <div class="projects">
+          <div class="project-card slide-in-left">
+            <div class="project-status">
+              <span class="status-dot active"></span>
+              <span class="status-text">Live Project</span>
+            </div>
+            <h4>API-Driven Appointment App</h4>
+            <p>
+              A Django REST Framework API for managing appointments between users and professionals, including authentication, role-based access, calendar integration and video conferencing.
+            </p>
+            <div class="tech-stack">
+              <span class="tech-tag">Django</span>
+              <span class="tech-tag">REST API</span>
+              <span class="tech-tag">PostgreSQL</span>
+            </div>
+            <a href="https://github.com/Da-code135" target="_blank" class="project-link">View on GitHub</a>
+          </div>
+          <div class="project-card slide-in-right">
+            <div class="project-status">
+              <span class="status-dot completed"></span>
+              <span class="status-text">Completed</span>
+            </div>
+            <h4>Unity Game: Soldering Simulator</h4>
+            <p>
+              A simulator built with Unity and C#. Features include collision physics, custom UI, and smooth animation using Animator and scriptable objects.
+            </p>
+            <div class="tech-stack">
+              <span class="tech-tag">Unity</span>
+              <span class="tech-tag">C#</span>
+              <span class="tech-tag">Physics</span>
+            </div>
+            <a href="https://github.com/Da-code135" target="_blank" class="project-link">View on GitHub</a>
+          </div>
         </div>
-        <ul>
-          <li>Git & GitHub</li>
-          <li>Version Control & CI/CD</li>
-          <li>Postman, Swagger</li>
-          <li>Debugging & Optimization</li>
-        </ul>
+      </div>
+
+      <div class="tab-content" id="contact">
+        <h2>Contact</h2>
+        <div class="contact-info">
+          <div class="contact-card">
+            <div class="contact-icon">📧</div>
+            <h3>Email</h3>
+            <p>Ready to start your project?</p>
+            <a href="mailto:darren77theone@gmail.com" class="contact-link">darren77theone@gmail.com</a>
+          </div>
+          <div class="contact-card">
+            <div class="contact-icon">💻</div>
+            <h3>GitHub</h3>
+            <p>Check out our latest work</p>
+            <a href="https://github.com/Da-code135" target="_blank" class="contact-link">View Portfolio</a>
+          </div>
+        </div>
       </div>
     </div>
-  </section>
-
-  <section>
-    <h2>Projects</h2>
-    <div class="projects">
-      <div class="project-card slide-in-left">
-        <div class="project-status">
-          <span class="status-dot active"></span>
-          <span class="status-text">Live Project</span>
-        </div>
-        <h4>API-Driven Appointment App</h4>
-        <p>
-          A Django REST Framework API for managing appointments between users and professionals, including authentication, role-based access, calendar integration and video conferencing.
-        </p>
-        <div class="tech-stack">
-          <span class="tech-tag">Django</span>
-          <span class="tech-tag">REST API</span>
-          <span class="tech-tag">PostgreSQL</span>
-        </div>
-        <a href="https://github.com/Da-code135" target="_blank" class="project-link">View on GitHub</a>
-      </div>
-      <div class="project-card slide-in-right">
-        <div class="project-status">
-          <span class="status-dot completed"></span>
-          <span class="status-text">Completed</span>
-        </div>
-        <h4>Unity Game: Soldering Simulator</h4>
-        <p>
-          A simulator built with Unity and C#. Features include collision physics, custom UI, and smooth animation using Animator and scriptable objects.
-        </p>
-        <div class="tech-stack">
-          <span class="tech-tag">Unity</span>
-          <span class="tech-tag">C#</span>
-          <span class="tech-tag">Physics</span>
-        </div>
-        <a href="https://github.com/Da-code135" target="_blank" class="project-link">View on GitHub</a>
-      </div>
-    </div>
-  </section>
-
-  <section>
-    <h2>Contact</h2>
-    <p>
-      Feel free to reach out via <a href="mailto:darren77theone@gmail.com">email</a> or check out my projects on <a href="https://github.com/Da-code135" target="_blank">GitHub</a>.
-    </p>
-  </section>
+  </div>
 
   <footer>
     &copy; 2025 Da-coders-135. All Rights Reserved.
