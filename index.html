@@ -12,8 +12,8 @@
     <div class="header-content">
       <img src="logo.png" alt="Da-coders-135 Logo" class="logo">
       <div class="header-text">
-        <h1>Da-coders-135</h1>
-        <p>Backend & Game Developer | Django REST Framework • Unity</p>
+        <h1 class="typewriter">Da-coders-135</h1>
+        <p class="subtitle-animation">Backend & Game Developer | Django REST Framework • Unity</p>
       </div>
     </div>
   </header>
@@ -28,8 +28,12 @@
   <section>
     <h2>Services</h2>
     <div class="skills-list">
-      <div class="skill-card">
+      <div class="skill-card floating-card" data-delay="0">
+        <div class="skill-icon">🚀</div>
         <h3>API Development</h3>
+        <div class="skill-progress">
+          <div class="progress-bar" data-width="95%"></div>
+        </div>
         <ul>
           <li>Python, Django, Django REST Framework</li>
           <li>RESTful API Design</li>
@@ -37,8 +41,12 @@
           <li>PostgreSQL, SQLite</li>
         </ul>
       </div>
-      <div class="skill-card">
+      <div class="skill-card floating-card" data-delay="200">
+        <div class="skill-icon">🎮</div>
         <h3>Game Development</h3>
+        <div class="skill-progress">
+          <div class="progress-bar" data-width="90%"></div>
+        </div>
         <ul>
           <li>Unity (2D & 3D)</li>
           <li>C# Programming</li>
@@ -46,8 +54,12 @@
           <li>Physics, Input</li>
         </ul>
       </div>
-      <div class="skill-card">
+      <div class="skill-card floating-card" data-delay="400">
+        <div class="skill-icon">⚡</div>
         <h3>Tools & Practices</h3>
+        <div class="skill-progress">
+          <div class="progress-bar" data-width="88%"></div>
+        </div>
         <ul>
           <li>Git & GitHub</li>
           <li>Version Control & CI/CD</li>
@@ -61,19 +73,37 @@
   <section>
     <h2>Projects</h2>
     <div class="projects">
-      <div class="project-card">
+      <div class="project-card slide-in-left">
+        <div class="project-status">
+          <span class="status-dot active"></span>
+          <span class="status-text">Live Project</span>
+        </div>
         <h4>API-Driven Appointment App</h4>
         <p>
           A Django REST Framework API for managing appointments between users and professionals, including authentication, role-based access, calendar integration and video conferencing.
         </p>
-        <a href="https://github.com/Da-code135" target="_blank">View on GitHub</a>
+        <div class="tech-stack">
+          <span class="tech-tag">Django</span>
+          <span class="tech-tag">REST API</span>
+          <span class="tech-tag">PostgreSQL</span>
+        </div>
+        <a href="https://github.com/Da-code135" target="_blank" class="project-link">View on GitHub</a>
       </div>
-      <div class="project-card">
+      <div class="project-card slide-in-right">
+        <div class="project-status">
+          <span class="status-dot completed"></span>
+          <span class="status-text">Completed</span>
+        </div>
         <h4>Unity Game: Soldering Simulator</h4>
         <p>
           A simulator built with Unity and C#. Features include collision physics, custom UI, and smooth animation using Animator and scriptable objects.
         </p>
-        <a href="https://github.com/Da-code135" target="_blank">View on GitHub</a>
+        <div class="tech-stack">
+          <span class="tech-tag">Unity</span>
+          <span class="tech-tag">C#</span>
+          <span class="tech-tag">Physics</span>
+        </div>
+        <a href="https://github.com/Da-code135" target="_blank" class="project-link">View on GitHub</a>
       </div>
     </div>
   </section>
