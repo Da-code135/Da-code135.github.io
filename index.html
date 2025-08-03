@@ -6,6 +6,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="style.css"> 
     <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        // Set progress bar widths dynamically
+        const progressBars = document.querySelectorAll('.progress-bar');
+        progressBars.forEach(bar => {
+          const width = bar.getAttribute('data-width');
+          bar.style.setProperty('--progress-width', width);
+        });
+      });
+    </script>
 </head>
 <body>
   <header>
