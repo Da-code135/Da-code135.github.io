@@ -7,6 +7,108 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="style.css">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
+
+  <!-- 3D Cube Styles -->
+  <style>
+    .cube-wrapper {
+      perspective: 1200px;
+      margin: 2rem 0;
+    }
+
+    .cube-container {
+      width: 100%;
+      max-width: 600px;
+      height: 400px;
+      position: relative;
+      margin: 0 auto;
+      transform-style: preserve-3d;
+      transition: transform 0.8s cubic-bezier(0.4, 0.0, 0.2, 1);
+    }
+
+    .cube-face {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: white;
+      border-radius: 1rem;
+      padding: 2rem;
+      box-shadow: 0 25px 50px -12px rgba(15, 23, 42, 0.25);
+      backface-visibility: hidden;
+      overflow-y: auto;
+    }
+
+    .cube-face-front {
+      transform: translateZ(200px);
+    }
+
+    .cube-face-back {
+      transform: rotateY(180deg) translateZ(200px);
+      background: linear-gradient(135deg, #EFF6FF, #DBEAFE);
+    }
+
+    .cube-face-right {
+      transform: rotateY(90deg) translateZ(200px);
+      background: linear-gradient(135deg, #F0FDF4, #DCFCE7);
+    }
+
+    .cube-face-left {
+      transform: rotateY(-90deg) translateZ(200px);
+      background: linear-gradient(135deg, #FEF3C7, #FDE68A);
+    }
+
+    .cube-container.show-back {
+      transform: translateZ(-200px) rotateY(-180deg);
+    }
+
+    .cube-container.show-right {
+      transform: translateZ(-200px) rotateY(-90deg);
+    }
+
+    .cube-container.show-left {
+      transform: translateZ(-200px) rotateY(90deg);
+    }
+
+    .cube-nav {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+
+    .cube-btn {
+      padding: 0.5rem 1.5rem;
+      background: linear-gradient(135deg, #06B6D4, #22D3EE);
+      color: white;
+      border: none;
+      border-radius: 2rem;
+      cursor: pointer;
+      font-weight: 600;
+      transition: all 0.3s;
+      box-shadow: 0 4px 6px rgba(6, 182, 212, 0.3);
+    }
+
+    .cube-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 12px rgba(6, 182, 212, 0.4);
+    }
+
+    .cube-btn.active {
+      background: linear-gradient(135deg, #0F172A, #1E40AF);
+      box-shadow: 0 6px 12px rgba(15, 23, 42, 0.4);
+    }
+
+    .face-label {
+      display: inline-block;
+      background: linear-gradient(135deg, #06B6D4, #22D3EE);
+      color: white;
+      padding: 0.25rem 1rem;
+      border-radius: 2rem;
+      font-size: 0.875rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+  </style>
+
   <script>
     document.addEventListener('DOMContentLoaded', function () {
       // Set progress bar widths dynamically (used in Services)
@@ -232,73 +334,102 @@
     </section>
 
     <section id="samples">
-      <h2>Featured Case Study</h2>
+      <h2>Featured Case Study - 3D Interactive View</h2>
       <div class="case-study-intro">
-        <p>See how we transformed a complex business requirement into a scalable, production-ready solution that serves
-          thousands of users daily.</p>
+        <p>Explore our project from different angles using the interactive 3D cube below</p>
       </div>
-      <div class="projects single-project">
-        <div class="project-card slide-in-center">
-          <div class="project-header">
-            <div class="project-status">
-              <span class="status-dot completed"></span>
-              <span class="status-text">Successfully Delivered</span>
-            </div>
-            <div class="project-impact">
-              <span class="impact-metric">10,000+ Active Users</span>
-            </div>
+
+      <div class="cube-wrapper">
+        <div class="cube-container" id="projectCube">
+          <!-- Front Face - Overview -->
+          <div class="cube-face cube-face-front">
+            <span class="face-label">Overview</span>
+            <h4>Enterprise Appointment Management Platform</h4>
+            <p><strong>Client:</strong> Healthcare SaaS Provider</p>
+            <p><strong>Duration:</strong> 6 months</p>
+            <p><strong>Team Size:</strong> 4 developers</p>
+            <p><strong>Status:</strong> Successfully Delivered</p>
+            <p><strong>Active Users:</strong> 10,000+</p>
+            <p style="margin-top: 2rem;"><em>Click the buttons below to explore different aspects of this project</em>
+            </p>
           </div>
-          <h4>Enterprise Appointment Management Platform</h4>
-          <div class="project-challenge">
-            <h5>The Challenge:</h5>
+
+          <!-- Back Face - Challenge & Solution -->
+          <div class="cube-face cube-face-back">
+            <span class="face-label">Challenge & Solution</span>
+            <h4>The Challenge</h4>
             <p>Our client needed a comprehensive appointment management system that could handle complex scheduling,
               real-time communication, and seamless integration with existing business tools.</p>
-          </div>
-          <div class="project-solution">
-            <h5>Our Solution:</h5>
+            <h4 style="margin-top: 1.5rem;">Our Solution</h4>
             <p>We architected and developed a robust Django REST Framework API with advanced features including JWT
               authentication, role-based permissions, calendar integration, real-time notifications, and integrated
               video conferencing capabilities.</p>
           </div>
-          <div class="tech-stack">
-            <span class="tech-tag">Django REST</span>
-            <span class="tech-tag">PostgreSQL</span>
-            <span class="tech-tag">JWT Auth</span>
-            <span class="tech-tag">WebRTC</span>
-            <span class="tech-tag">Redis</span>
-            <span class="tech-tag">Celery</span>
-          </div>
-          <div class="project-features">
-            <h5>Delivered Features:</h5>
-            <ul>
-              <li>✅ Multi-tenant architecture supporting 1000+ concurrent users</li>
-              <li>✅ Advanced scheduling with conflict resolution</li>
-              <li>✅ Real-time notifications via WebSocket</li>
-              <li>✅ Integrated video conferencing with recording</li>
-              <li>✅ Calendar synchronization (Google, Outlook, Apple)</li>
-              <li>✅ Comprehensive admin dashboard with analytics</li>
+
+          <!-- Right Face - Tech Stack -->
+          <div class="cube-face cube-face-right">
+            <span class="face-label">Technology Stack</span>
+            <h4>Technologies Used</h4>
+            <ul style="list-style: none; padding: 0;">
+              <li
+                style="padding: 0.5rem; background: white; margin: 0.5rem 0; border-radius: 0.5rem; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+                <strong>Backend:</strong> Django REST Framework, Python 3.9
+              </li>
+              <li
+                style="padding: 0.5rem; background: white; margin: 0.5rem 0; border-radius: 0.5rem; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+                <strong>Database:</strong> PostgreSQL with Redis caching
+              </li>
+              <li
+                style="padding: 0.5rem; background: white; margin: 0.5rem 0; border-radius: 0.5rem; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+                <strong>Authentication:</strong> JWT + OAuth 2.0
+              </li>
+              <li
+                style="padding: 0.5rem; background: white; margin: 0.5rem 0; border-radius: 0.5rem; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+                <strong>Real-time:</strong> WebSocket + WebRTC
+              </li>
+              <li
+                style="padding: 0.5rem; background: white; margin: 0.5rem 0; border-radius: 0.5rem; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+                <strong>Task Queue:</strong> Celery with RabbitMQ
+              </li>
+              <li
+                style="padding: 0.5rem; background: white; margin: 0.5rem 0; border-radius: 0.5rem; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+                <strong>Deployment:</strong> Docker, Kubernetes, AWS
+              </li>
             </ul>
           </div>
-          <div class="project-results">
-            <h5>Results:</h5>
-            <div class="results-grid">
-              <div class="result-item">
-                <span class="result-number">99.9%</span>
-                <span class="result-label">Uptime</span>
+
+          <!-- Left Face - Results -->
+          <div class="cube-face cube-face-left">
+            <span class="face-label">Results & Impact</span>
+            <h4>Measurable Results</h4>
+            <div style="text-align: center; margin: 2rem 0;">
+              <div
+                style="display: inline-block; margin: 1rem; padding: 1.5rem; background: white; border-radius: 1rem; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+                <div style="font-size: 3rem; font-weight: bold; color: #06B6D4;">99.9%</div>
+                <div style="color: #64748B;">Uptime</div>
               </div>
-              <div class="result-item">
-                <span class="result-number">40%</span>
-                <span class="result-label">Faster Booking</span>
+              <div
+                style="display: inline-block; margin: 1rem; padding: 1.5rem; background: white; border-radius: 1rem; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+                <div style="font-size: 3rem; font-weight: bold; color: #10B981;">40%</div>
+                <div style="color: #64748B;">Faster Booking</div>
               </div>
-              <div class="result-item">
-                <span class="result-number">10K+</span>
-                <span class="result-label">Daily Users</span>
+              <div
+                style="display: inline-block; margin: 1rem; padding: 1.5rem; background: white; border-radius: 1rem; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+                <div style="font-size: 3rem; font-weight: bold; color: #F59E0B;">10K+</div>
+                <div style="color: #64748B;">Daily Users</div>
               </div>
             </div>
+            <p style="margin-top: 2rem;"><strong>Client Feedback:</strong> "The platform exceeded our expectations and
+              has become essential to our daily operations."</p>
           </div>
-          <div class="project-private-note">
-            <span class="private-note">🔒 Source code confidential per client agreement</span>
-          </div>
+        </div>
+
+        <!-- Cube Navigation Buttons -->
+        <div class="cube-nav">
+          <button class="cube-btn active" onclick="rotateCube('')">Overview</button>
+          <button class="cube-btn" onclick="rotateCube('back')">Challenge</button>
+          <button class="cube-btn" onclick="rotateCube('right')">Tech Stack</button>
+          <button class="cube-btn" onclick="rotateCube('left')">Results</button>
         </div>
       </div>
     </section>
@@ -397,6 +528,31 @@
   </main>
 
   <script>
+    // 3D Cube Rotation Script
+    function rotateCube(face) {
+      const cube = document.getElementById('projectCube');
+      const buttons = document.querySelectorAll('.cube-btn');
+
+      // Remove all show classes
+      cube.className = 'cube-container';
+
+      // Add the appropriate class
+      if (face) {
+        cube.classList.add('show-' + face);
+      }
+
+      // Update active button
+      buttons.forEach((btn, index) => {
+        btn.classList.remove('active');
+        if ((face === '' && index === 0) ||
+          (face === 'back' && index === 1) ||
+          (face === 'right' && index === 2) ||
+          (face === 'left' && index === 3)) {
+          btn.classList.add('active');
+        }
+      });
+    }
+
     // Simple scrollspy to update active nav link based on scroll position
     document.addEventListener('DOMContentLoaded', function () {
       const sections = document.querySelectorAll('main section');
