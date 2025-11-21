@@ -1,0 +1,253 @@
+/* ===================================
+   CARD COMPONENTS
+   Service Cards, Project Cards, Value Cards
+   =================================== */
+
+/* Base Card Styles */
+.skill-card,
+.project-card,
+.value-card,
+.contact-card {
+    background: var(--color-white);
+    padding: var(--space-xl);
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-lg);
+    transition: all var(--transition-base);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Top Border Accent */
+.skill-card::before,
+.project-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: var(--gradient-primary);
+    opacity: 0;
+    transition: opacity var(--transition-base);
+}
+
+.skill-card:hover::before,
+.project-card:hover::before {
+    opacity: 1;
+}
+
+/* Card Hover Effects */
+.skill-card:hover,
+.project-card:hover,
+.value-card:hover,
+.contact-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-2xl), var(--shadow-primary);
+}
+
+/* Skill Cards */
+.skill-card {
+    border-left: 6px solid var(--color-primary);
+    cursor: default;
+}
+
+/* Canvas Container for Three.js */
+.three-canvas-container {
+    width: 100%;
+    height: 200px;
+    margin-bottom: var(--space-md);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+}
+
+/* Card Icon */
+.skill-icon,
+.value-icon {
+    font-size: 3rem;
+    text-align: center;
+    margin-bottom: var(--space-md);
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+/* Progress Bars */
+.skill-progress {
+    width: 100%;
+    height: 8px;
+    background: var(--color-gray-200);
+    border-radius: var(--radius-sm);
+    margin: var(--space-md) 0;
+    overflow: hidden;
+}
+
+.progress-bar {
+    height: 100%;
+    background: var(--gradient-primary);
+    border-radius: var(--radius-sm);
+    width: 0;
+    animation: fillProgress 2s ease 1s forwards;
+    position: relative;
+}
+
+.progress-bar::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+    animation: shimmer 2s infinite;
+}
+
+@keyframes fillProgress {
+    to {
+        width: var(--progress-width, 90%);
+    }
+}
+
+@keyframes shimmer {
+    0% {
+        left: -100%;
+    }
+
+    100% {
+        left: 100%;
+    }
+}
+
+.progress-label {
+    font-size: var(--font-size-xs);
+    font-weight: 600;
+    color: var(--color-primary);
+    margin-top: var(--space-xs);
+    display: block;
+}
+
+/* Service Description */
+.service-description {
+    margin: var(--space-md) 0;
+    padding: var(--space-md);
+    background: linear-gradient(135deg, #EFF6FF, #DBEAFE);
+    border-radius: var(--radius-lg);
+    border-left: 3px solid var(--color-secondary);
+}
+
+.service-description p {
+    margin: 0;
+    font-style: italic;
+    color: var(--color-primary-dark);
+    font-weight: 500;
+}
+
+/* Service CTA */
+.service-cta {
+    margin-top: var(--space-md);
+    padding: var(--space-md);
+    background: linear-gradient(135deg, #FEF3C7, #FDE68A);
+    border-radius: var(--radius-lg);
+    border-left: 3px solid var(--color-warning);
+}
+
+.cta-text {
+    font-size: var(--font-size-xs);
+    font-weight: 600;
+    color: #92400E;
+    margin: 0;
+}
+
+/* Tech Stack Tags */
+.tech-stack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-sm);
+    margin: var(--space-md) 0;
+}
+
+.tech-tag {
+    background: var(--gradient-primary);
+    color: white;
+    padding: 0.3rem 0.8rem;
+    border-radius: var(--radius-full);
+    font-size: var(--font-size-xs);
+    font-weight: 500;
+    transform: scale(0);
+    animation: popIn 0.5s ease forwards;
+    box-shadow: var(--shadow-sm);
+}
+
+.tech-tag:nth-child(1) {
+    animation-delay: 1.2s;
+}
+
+.tech-tag:nth-child(2) {
+    animation-delay: 1.4s;
+}
+
+.tech-tag:nth-child(3) {
+    animation-delay: 1.6s;
+}
+
+.tech-tag:nth-child(4) {
+    animation-delay: 1.8s;
+}
+
+.tech-tag:nth-child(5) {
+    animation-delay: 2.0s;
+}
+
+.tech-tag:nth-child(6) {
+    animation-delay: 2.2s;
+}
+
+@keyframes popIn {
+    to {
+        transform: scale(1);
+    }
+}
+
+/* Contact Cards */
+.contact-card {
+    text-align: center;
+    border: 2px solid transparent;
+}
+
+.contact-card.primary {
+    background: var(--gradient-primary);
+    color: var(--color-white);
+    transform: scale(1.05);
+    box-shadow: var(--shadow-primary-lg);
+}
+
+.contact-card.primary h3,
+.contact-card.primary p {
+    color: var(--color-white);
+}
+
+.contact-icon {
+    font-size: 3.5rem;
+    margin-bottom: var(--space-md);
+    animation: float 3s ease-in-out infinite;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+
+    .skill-card,
+    .project-card,
+    .value-card,
+    .contact-card {
+        padding: var(--space-lg);
+    }
+}

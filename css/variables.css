@@ -1,0 +1,113 @@
+/* ===================================
+   DESIGN TOKENS & VARIABLES
+   Professional Navy/Teal/Coral Palette
+   =================================== */
+
+:root {
+    /* Professional Color Palette - Navy/Teal/Coral */
+    --color-primary: #0F172A;
+    /* Deep Navy */
+    --color-primary-light: #1E40AF;
+    /* Rich Blue */
+    --color-primary-dark: #0C1220;
+    /* Darker Navy */
+
+    --color-secondary: #06B6D4;
+    /* Teal/Cyan */
+    --color-secondary-light: #22D3EE;
+    /* Bright Cyan */
+    --color-secondary-dark: #0891B2;
+    /* Deep Teal */
+
+    --color-accent: #F43F5E;
+    /* Coral/Rose */
+    --color-accent-light: #FB7185;
+    /* Light Coral */
+    --color-accent-dark: #E11D48;
+    /* Deep Rose */
+
+    --color-success: #10B981;
+    /* Emerald */
+    --color-warning: #F59E0B;
+    /* Amber */
+
+    /* Neutral Colors - Blue-tinted grays */
+    --color-white: #ffffff;
+    --color-gray-50: #F8FAFC;
+    --color-gray-100: #F1F5F9;
+    --color-gray-200: #E2E8F0;
+    --color-gray-300: #CBD5E1;
+    --color-gray-400: #94A3B8;
+    --color-gray-500: #64748B;
+    --color-gray-600: #475569;
+    --color-gray-700: #334155;
+    --color-gray-800: #1E293B;
+    --color-gray-900: #0F172A;
+
+    /* Professional Gradient Definitions */
+    --gradient-primary: linear-gradient(135deg, #0F172A 0%, #1E40AF 50%, #06B6D4 100%);
+    --gradient-secondary: linear-gradient(135deg, #06B6D4 0%, #22D3EE 100%);
+    --gradient-accent: linear-gradient(135deg, #F43F5E 0%, #FB7185 100%);
+    --gradient-background: linear-gradient(135deg, #F8FAFC 0%, #EFF6FF 50%, #DBEAFE 100%);
+
+    /* Shadow System - Elevation Based */
+    --shadow-sm: 0 1px 2px rgba(15, 23, 42, 0.05);
+    --shadow-md: 0 4px 6px -1px rgba(15, 23, 42, 0.1), 0 2px 4px -1px rgba(15, 23, 42, 0.06);
+    --shadow-lg: 0 10px 15px -3px rgba(15, 23, 42, 0.1), 0 4px 6px -2px rgba(15, 23, 42, 0.05);
+    --shadow-xl: 0 20px 25px -5px rgba(15, 23, 42, 0.1), 0 10px 10px -5px rgba(15, 23, 42, 0.04);
+    --shadow-2xl: 0 25px 50px -12px rgba(15, 23, 42, 0.25);
+
+    /* Professional Colored Shadows */
+    --shadow-primary: 0 10px 30px -5px rgba(15, 23, 42, 0.4);
+    --shadow-primary-lg: 0 20px 40px -10px rgba(15, 23, 42, 0.5);
+    --shadow-secondary: 0 10px 30px -5px rgba(6, 182, 212, 0.3);
+    --shadow-accent: 0 10px 30px -5px rgba(244, 63, 94, 0.3);
+
+    /* Glassmorphism */
+    --glass-bg: rgba(255, 255, 255, 0.7);
+    --glass-border: rgba(255, 255, 255, 0.18);
+    --glass-blur: blur(12px);
+
+    /* Spacing Scale */
+    --space-xs: 0.25rem;
+    --space-sm: 0.5rem;
+    --space-md: 1rem;
+    --space-lg: 1.5rem;
+    --space-xl: 2rem;
+    --space-2xl: 3rem;
+    --space-3xl: 4rem;
+
+    /* Border Radius */
+    --radius-sm: 0.375rem;
+    --radius-md: 0.5rem;
+    --radius-lg: 0.75rem;
+    --radius-xl: 1rem;
+    --radius-2xl: 1.5rem;
+    --radius-full: 9999px;
+
+    /* Transitions */
+    --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-base: 300ms cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-slow: 500ms cubic-bezier(0.4, 0, 0.2, 1);
+
+    /* Typography Scale */
+    --font-size-xs: 0.75rem;
+    --font-size-sm: 0.875rem;
+    --font-size-base: 1rem;
+    --font-size-lg: 1.125rem;
+    --font-size-xl: 1.25rem;
+    --font-size-2xl: 1.5rem;
+    --font-size-3xl: 1.875rem;
+    --font-size-4xl: 2.25rem;
+    --font-size-5xl: 3rem;
+
+    /* Z-index Scale */
+    --z-below: -1;
+    --z-base: 0;
+    --z-dropdown: 100;
+    --z-sticky: 400;
+    --z-fixed: 500;
+    --z-modal: 900;
+    --z-popover: 1000;
+    --z-tooltip: 1100;
+}

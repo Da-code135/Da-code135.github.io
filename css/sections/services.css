@@ -1,0 +1,69 @@
+/* ===================================
+   SERVICES SECTION
+   =================================== */
+
+#services {
+    scroll-margin-top: 96px;
+}
+
+.service-intro {
+    text-align: center;
+    margin-bottom: var(--space-2xl);
+    padding: var(--space-xl);
+    background: var(--gradient-primary);
+    color: white;
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-primary);
+}
+
+.service-intro p {
+    font-size: var(--font-size-lg);
+    margin: 0;
+    font-weight: 500;
+    color: var(--color-white);
+}
+
+.skills-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-xl);
+    margin-top: var(--space-md);
+}
+
+.skill-card {
+    flex: 1 1 280px;
+    min-width: 260px;
+}
+
+/* Floating Card Animation */
+.floating-card {
+    opacity: 0;
+    transform: translateY(50px);
+    animation: floatIn 0.8s ease forwards;
+}
+
+.floating-card[data-delay="200"] {
+    animation-delay: 0.2s;
+}
+
+.floating-card[data-delay="400"] {
+    animation-delay: 0.4s;
+}
+
+@keyframes floatIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .skills-list {
+        flex-direction: column;
+    }
+
+    .skill-card {
+        min-width: 100%;
+    }
+}

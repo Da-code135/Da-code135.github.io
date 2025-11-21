@@ -1,0 +1,150 @@
+/* ===================================
+   BASE STYLES
+   Typography, Reset, Global Elements
+   =================================== */
+
+/* Google Fonts - Inter for premium typography */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+/* CSS Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* Base Typography */
+html {
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    line-height: 1.6;
+    color: var(--color-gray-800);
+    background: var(--gradient-background);
+    font-weight: 400;
+    scroll-behavior: smooth;
+}
+
+/* Headings */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    margin-bottom: var(--space-md);
+    color: var(--color-primary);
+}
+
+h1 {
+    font-size: var(--font-size-5xl);
+    font-weight: 800;
+}
+
+h2 {
+    font-size: var(--font-size-3xl);
+}
+
+h3 {
+    font-size: var(--font-size-2xl);
+}
+
+h4 {
+    font-size: var(--font-size-xl);
+}
+
+/* Paragraphs & Lists */
+p {
+    margin-bottom: var(--space-md);
+    line-height: 1.7;
+}
+
+ul,
+ol {
+    margin-bottom: var(--space-md);
+    padding-left: var(--space-xl);
+}
+
+li {
+    margin-bottom: var(--space-xs);
+}
+
+/* Links */
+a {
+    color: var(--color-primary-light);
+    text-decoration: none;
+    transition: color var(--transition-fast);
+}
+
+a:hover {
+    color: var(--color-secondary);
+    text-decoration: underline;
+}
+
+/* Images */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Strong & Emphasis */
+strong {
+    font-weight: 600;
+    color: var(--color-primary);
+}
+
+em {
+    font-style: italic;
+}
+
+/* Selection */
+::selection {
+    background-color: var(--color-secondary-light);
+    color: var(--color-white);
+}
+
+::-moz-selection {
+    background-color: var(--color-secondary-light);
+    color: var(--color-white);
+}
+
+/* Scrollbar Styling (Chrome/Safari) */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--color-gray-100);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--color-gray-400);
+    border-radius: var(--radius-full);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--color-gray-500);
+}
+
+/* Focus Styles */
+:focus {
+    outline: 2px solid var(--color-secondary);
+    outline-offset: 2px;
+}
+
+:focus:not(:focus-visible) {
+    outline: none;
+}
