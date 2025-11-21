@@ -45,6 +45,50 @@ header h1 {
   margin: 0;
   font-size: 2.5rem;
   font-weight: 700;
+
+/* Main navigation */
+.main-nav {
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  backdrop-filter: blur(6px);
+  background: linear-gradient(90deg, rgba(40,46,60,0.6), rgba(40,46,60,0.45));
+  box-shadow: 0 6px 20px rgba(15, 23, 42, 0.12);
+}
+.main-nav ul {
+  margin: 0;
+  padding: 0.6rem 1rem;
+  display: flex;
+  gap: 1.25rem;
+  list-style: none;
+  justify-content: center;
+  align-items: center;
+}
+.main-nav a {
+  color: #fff;
+  text-decoration: none;
+  padding: 0.5rem 0.8rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  transition: background 0.18s, color 0.18s, transform 0.12s;
+}
+.main-nav a:hover {
+  background: rgba(255,255,255,0.06);
+  transform: translateY(-2px);
+}
+.main-nav a.active {
+  background: linear-gradient(90deg, #3b82f6, #1e3a8a);
+  color: #fff;
+  box-shadow: 0 6px 18px rgba(30, 58, 138, 0.18);
+}
+
+/* Add spacing at top so anchored sections are visible below sticky nav */
+main { padding-top: 1.25rem; }
+main section { scroll-margin-top: 96px; }
+
+@media (max-width: 700px) {
+  .main-nav ul { gap: 0.6rem; padding: 0.4rem 0.6rem; }
+  .main-nav a { font-size: 0.95rem; padding: 0.45rem 0.6rem; }
 }
 
 .typewriter {
@@ -802,7 +846,7 @@ Project Status Notes */
   to {
     box-shadow: 0 0 15px rgba(245, 158, 11, 0.4);
   }
-}/
+}
 * Single Project Layout */
 .projects.single-project {
   justify-content: center;
@@ -1231,4 +1275,5 @@ sional Enhancements */
     flex-direction: column;
     gap: 0.5rem;
   }
+}
 }
